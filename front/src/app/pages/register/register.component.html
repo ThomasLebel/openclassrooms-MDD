@@ -20,8 +20,10 @@
 
         <span
           class="error"
-          *ngIf="registerForm.get('username')?.touched 
-        && registerForm.get('username')?.errors?.['required']"
+          *ngIf="
+            registerForm.get('username')?.touched &&
+            registerForm.get('username')?.errors
+          "
           >Veuillez saisir un nom d'utilisateur d'au moins 4 caractères</span
         >
       </div>

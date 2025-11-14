@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterLink } from '@angular/router';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { ArticleCardComponent } from './article-card/article-card.component';
+import { CommentComponent } from './comment/comment.component';
 import { SideNavComponent } from './header/components/side-nav/side-nav.component';
 import { HeaderComponent } from './header/header.component';
 import { ThemeCardComponent } from './theme-card/theme-card.component';
@@ -16,6 +17,7 @@ import { ThemeCardComponent } from './theme-card/theme-card.component';
     SideNavComponent,
     ArticleCardComponent,
     ThemeCardComponent,
+    CommentComponent,
   ],
   imports: [
     CommonModule,
@@ -30,6 +32,7 @@ import { ThemeCardComponent } from './theme-card/theme-card.component';
     SideNavComponent,
     ArticleCardComponent,
     ThemeCardComponent,
+    CommentComponent,
   ],
 })
 export class SharedModule {}

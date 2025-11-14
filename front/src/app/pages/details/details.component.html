@@ -1,0 +1,49 @@
+<app-header></app-header>
+<div class="main-container">
+  <mat-icon
+    class="arrow-back"
+    aria-hidden="false"
+    routerLink=""
+    aria-label="arrow back icon"
+    fontIcon="west"
+  ></mat-icon>
+  <div class="sub-container">
+    <h2>Titre de l'article</h2>
+    <div class="article-infos">
+      <span class="article-info">01 Janvier 2024</span>
+      <span class="article-info">Par Auteur</span>
+      <span class="article-info">Thème</span>
+    </div>
+    <p class="content">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+      nesciunt fugit similique deserunt doloribus, a voluptate quaerat eligendi
+      repellat quis esse corporis natus recusandae unde beatae et vitae, iusto
+      obcaecati! Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe,
+      labore ducimus. Maxime, soluta ipsa vitae blanditiis dolore at quos libero
+      alias aliquam cupiditate, ut eos, obcaecati accusantium excepturi iusto.
+      Modi?
+    </p>
+    <mat-divider></mat-divider>
+
+    <span class="comments-title">Commentaires</span>
+    <div class="bottom-container">
+      <div class="comments-section">
+        <app-comment></app-comment>
+
+        <div class="comment-input-container">
+          <textarea
+            class="comment-input"
+            placeholder="Écrivez ici votre commentaire"
+          ></textarea>
+          <mat-icon
+            class="send-button"
+            aria-hidden="false"
+            routerLink=""
+            aria-label="arrow back icon"
+            fontIcon="send"
+          ></mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
