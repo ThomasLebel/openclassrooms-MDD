@@ -1,0 +1,74 @@
+<app-header></app-header>
+<div class="container" *ngIf="createForm">
+  <div class="sub-container">
+    <div class="icon-container">
+      <mat-icon
+        aria-hidden="false"
+        routerLink=""
+        aria-label="arrow back icon"
+        fontIcon="west"
+      ></mat-icon>
+    </div>
+    <form [formGroup]="createForm">
+      <!--Titre-->
+      <h2>Créer un nouvel article</h2>
+
+      <!--Select-->
+      <div class="input-container">
+        <select
+          formControlName="theme"
+          class="field"
+          [class.placeholder]="createForm.get('theme')?.value === ''"
+        >
+          <option value="">Sélectionner un thème</option>
+          <option *ngFor="let item of items" [value]="item.value">
+            {{ item.label }}
+          </option>
+        </select>
+        <span
+          class="error"
+          *ngIf="
+            createForm.get('theme')?.touched && createForm.get('theme')?.errors
+          "
+          >Veuillez sélectionner un thème</span
+        >
+      </div>
+
+      <!--Titre article-->
+      <div class="input-container">
+        <input
+          class="field"
+          type="text"
+          formControlName="title"
+          placeholder="Titre de l'article"
+        />
+        <span
+          class="error"
+          *ngIf="
+            createForm.get('title')?.touched && createForm.get('title')?.errors
+          "
+          >Veuillez un titre d'au moins 5 caractères</span
+        >
+      </div>
+
+      <!--Contenu article-->
+      <div class="input-container">
+        <textarea
+          class="field"
+          formControlName="content"
+          placeholder="Contenu de l'article"
+        ></textarea>
+        <span
+          class="error"
+          *ngIf="
+            createForm.get('content')?.touched &&
+            createForm.get('content')?.errors
+          "
+          >Veuillez saisir un contenu d'au moins 20 caractères</span
+        >
+      </div>
+
+      <button mat-raised-button color="primary" type="submit">Créer</button>
+    </form>
+  </div>
+</div>

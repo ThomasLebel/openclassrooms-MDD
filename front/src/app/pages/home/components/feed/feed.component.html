@@ -3,7 +3,9 @@
   <div class="sub-container">
     <!--Partie supérieur avec bouton et filtrage-->
     <div class="button-container">
-      <button mat-raised-button color="primary">Créer un article</button>
+      <button mat-raised-button color="primary" routerLink="/create">
+        Créer un article
+      </button>
       <div class="sort-container">
         <span class="sort-span" (click)="onSortChange()">Trier par</span>
         <mat-icon

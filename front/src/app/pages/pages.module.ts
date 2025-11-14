@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ThemesComponent } from './themes/themes.component';
+import { CreateComponent } from './create/create.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ThemesComponent } from './themes/themes.component';
     FeedComponent,
     ThemesComponent,
     DetailsComponent,
+    CreateComponent,
   ],
   imports: [
     CommonModule,
