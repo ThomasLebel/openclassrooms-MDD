@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ThemesComponent } from './themes/themes.component';
 import { CreateComponent } from './create/create.component';
+import { MeComponent } from './me/me.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CreateComponent } from './create/create.component';
     ThemesComponent,
     DetailsComponent,
     CreateComponent,
+    MeComponent,
   ],
   imports: [
     CommonModule,

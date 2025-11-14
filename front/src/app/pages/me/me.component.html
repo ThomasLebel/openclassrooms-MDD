@@ -1,0 +1,85 @@
+<app-header actualPage="me"></app-header>
+<div class="container">
+  <div class="sub-container">
+    <form [formGroup]="meForm">
+      <h2>Profil utilisateur</h2>
+      <div class="form-field">
+        <input
+          type="text"
+          id="username"
+          formControlName="username"
+          placeholder="Username"
+        />
+
+        <span
+          class="error"
+          *ngIf="
+            meForm.get('username')?.touched && meForm.get('username')?.errors
+          "
+          >Veuillez saisir un nom d'utilisateur d'au moins 4 caractères</span
+        >
+      </div>
+
+      <div class="form-field">
+        <input
+          type="text"
+          id="email"
+          formControlName="email"
+          placeholder="email"
+        />
+
+        <span
+          class="error"
+          *ngIf="meForm.get('email')?.touched 
+        && meForm.get('email')?.errors?.['required']"
+          >Veuillez saisir un email</span
+        >
+
+        <span
+          class="error"
+          *ngIf="meForm.get('email')?.touched 
+        && !meForm.get('email')?.errors?.['required']
+        && meForm.get('email')?.errors?.['pattern']"
+          >Veuillez saisir un email correct</span
+        >
+      </div>
+
+      <div class="form-field">
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="Nouveau mot de passe"
+        />
+
+        <span
+          class="error"
+          *ngIf="meForm.get('password')?.touched 
+        && meForm.get('password')?.errors?.['required']"
+          >Veuillez saisir un mot de passe</span
+        >
+
+        <span
+          class="error"
+          *ngIf="meForm.get('password')?.touched 
+        && meForm.get('password')?.errors?.['passwordStrength'] 
+        && !meForm.get('password')?.errors?.['required']"
+        >
+          Le mot de passe doit contenir au moins 8 caractères, une majuscule,
+          une minuscule, un chiffre et un caractère spécial
+        </span>
+      </div>
+      <button mat-raised-button color="primary" type="submit">
+        Sauvegarder
+      </button>
+    </form>
+    <mat-divider></mat-divider>
+    <h2>Abonnements</h2>
+    <div class="articles-container">
+      <app-theme-card></app-theme-card>
+      <app-theme-card></app-theme-card>
+      <app-theme-card></app-theme-card>
+      <app-theme-card></app-theme-card>
+    </div>
+  </div>
+</div>

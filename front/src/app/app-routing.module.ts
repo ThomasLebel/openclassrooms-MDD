@@ -4,6 +4,7 @@ import { CreateComponent } from './pages/create/create.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { MeComponent } from './pages/me/me.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ThemesComponent } from './pages/themes/themes.component';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'themes', component: ThemesComponent },
   { path: 'details', component: DetailsComponent },
   { path: 'create', component: CreateComponent },
+  { path: 'me', component: MeComponent },
 ];
 
 @NgModule({

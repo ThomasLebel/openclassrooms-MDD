@@ -31,9 +31,13 @@
         >
         <img
           class="user-icon"
-          src="/assets/user.png"
+          [src]="
+            actualPage === 'me'
+              ? '/assets/user-connected.png'
+              : '/assets/user.png'
+          "
           alt="user icon"
-          routerLink=""
+          routerLink="/me"
         />
       </nav>
     </div>
