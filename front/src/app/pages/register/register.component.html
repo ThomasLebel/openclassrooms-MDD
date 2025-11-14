@@ -1,0 +1,81 @@
+<app-header></app-header>
+<div class="container">
+  <div class="sub-container">
+    <div class="icon-container">
+      <mat-icon
+        aria-hidden="false"
+        routerLink=""
+        aria-label="arrow back icon"
+        fontIcon="west"
+      ></mat-icon>
+    </div>
+    <img src="/assets/logo_p6.png" alt="logo" routerLink="" />
+
+    <h1>S'inscrire</h1>
+
+    <form [formGroup]="registerForm">
+      <div class="form-field">
+        <label for="username">Nom d'utilisateur</label>
+        <input type="text" id="username" formControlName="username" />
+
+        <span
+          class="error"
+          *ngIf="registerForm.get('username')?.touched 
+        && registerForm.get('username')?.errors?.['required']"
+          >Veuillez saisir un nom d'utilisateur d'au moins 4 caractères</span
+        >
+      </div>
+
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input type="text" id="email" formControlName="email" />
+
+        <span
+          class="error"
+          *ngIf="registerForm.get('email')?.touched 
+        && registerForm.get('email')?.errors?.['required']"
+          >Veuillez saisir un email</span
+        >
+
+        <span
+          class="error"
+          *ngIf="registerForm.get('email')?.touched 
+        && !registerForm.get('email')?.errors?.['required']
+        && registerForm.get('email')?.errors?.['pattern']"
+          >Veuillez saisir un email correct</span
+        >
+      </div>
+
+      <div class="form-field">
+        <label for="password">Mot de passe</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          (keydown.enter)="onSubmitForm()"
+        />
+
+        <span
+          class="error"
+          *ngIf="registerForm.get('password')?.touched 
+        && registerForm.get('password')?.errors?.['required']"
+          >Veuillez saisir un mot de passe</span
+        >
+
+        <span
+          class="error"
+          *ngIf="registerForm.get('password')?.touched 
+        && registerForm.get('password')?.errors?.['passwordStrength'] 
+        && !registerForm.get('password')?.errors?.['required']"
+        >
+          Le mot de passe doit contenir au moins 8 caractères, une majuscule,
+          une minuscule, un chiffre et un caractère spécial
+        </span>
+      </div>
+    </form>
+
+    <button mat-raised-button color="primary" (click)="onSubmitForm()">
+      S'inscrire
+    </button>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+.main-container {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: center;
+}
+
+.sub-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .sub-container {
+    max-width: 1280px;
+  }
+}
+
+.mdd-logo {
+  height: 100px;
+  cursor: pointer;
+}
+
+.btns-container {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  gap: 20px;
+}
+
+.disconect {
+  color: #a40f0f;
+  font-weight: 700;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.disconect:hover {
+  text-decoration: underline;
+}
+
+.menu-btn {
+  font-size: 20px;
+}
+
+.menu-btn:hover {
+  font-size: 20px;
+  color: #6c5ccf;
+  cursor: pointer;
+}
+
+.user-icon {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+mat-icon {
+  font-size: 36px;
+  width: 36px;
+  height: 36px;
+  margin-right: 24px;
+}
+
+.blue {
+  color: #6c5ccf;
+}

@@ -1,0 +1,29 @@
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.sub-container {
+  width: 100%;
+  max-width: 1280px;
+  height: 100vh;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.articles-container {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .articles-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

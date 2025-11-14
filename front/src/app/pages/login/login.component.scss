@@ -1,0 +1,68 @@
+.icon-container {
+  width: 100%;
+}
+
+.mat-icon {
+  height: 60px;
+  width: 100px;
+  font-size: 50px;
+  margin-left: 20px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.mat-icon:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+img {
+  width: 75vw;
+}
+
+@media (min-width: 600px) {
+  img {
+    display: none;
+  }
+}
+
+.container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.sub-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+label {
+  font-size: 16px;
+}
+
+input {
+  height: 50px;
+  width: 250px;
+  border-radius: 8px;
+}
+
+button {
+  margin-top: 20px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.error {
+  width: 250px;
+  color: red;
+}

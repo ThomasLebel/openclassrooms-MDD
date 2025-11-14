@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/core/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -6,11 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  isUserLoggedIn$: Observable<boolean> = this.authService.isLoggedIn$;
+
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
-
-  start() {
-    alert('Commencez par lire le README et à vous de jouer !');
-  }
 }

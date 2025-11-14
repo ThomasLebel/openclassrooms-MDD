@@ -1,0 +1,29 @@
+<div *ngIf="isDrawerOpen" (click)="toggleDrawerEvent()" class="container">
+  <div class="drawer" @drawerAnimation (click)="$event.stopPropagation()">
+    <nav class="nav-links">
+      <div class="text-links">
+        <span class="nav-link-disconect" (click)="disconnect.emit()"
+          >Se déconnecter</span
+        >
+        <span
+          class="nav-link"
+          routerLink=""
+          [ngClass]="{ blue: actualPage === 'articles' }"
+          >Articles</span
+        >
+        <span
+          class="nav-link"
+          routerLink="/themes"
+          [ngClass]="{ blue: actualPage === 'themes' }"
+          >Thèmes</span
+        >
+      </div>
+      <img
+        class="user-icon"
+        src="/assets/user.png"
+        alt="user icon"
+        routerLink=""
+      />
+    </nav>
+  </div>
+</div>

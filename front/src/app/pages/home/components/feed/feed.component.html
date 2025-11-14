@@ -1,0 +1,34 @@
+<app-header actualPage="articles"></app-header>
+<div class="main-container">
+  <div class="sub-container">
+    <!--Partie supérieur avec bouton et filtrage-->
+    <div class="button-container">
+      <button mat-raised-button color="primary">Créer un article</button>
+      <div class="sort-container">
+        <span class="sort-span" (click)="onSortChange()">Trier par</span>
+        <mat-icon
+          *ngIf="sortByLatest; else sortByOldest"
+          (click)="onSortChange()"
+          aria-hidden="false"
+          aria-label="Trier du plus récent au plus ancien"
+          fontIcon="south"
+        ></mat-icon>
+        <ng-template #sortByOldest>
+          <mat-icon
+            (click)="onSortChange()"
+            aria-hidden="false"
+            aria-label="Trier du plus ancien au plus récent"
+            fontIcon="north"
+          ></mat-icon>
+        </ng-template>
+      </div>
+    </div>
+
+    <!--Liste des articles-->
+    <div class="articles-container">
+      <app-article-card></app-article-card>
+      <app-article-card></app-article-card>
+      <app-article-card></app-article-card>
+    </div>
+  </div>
+</div>

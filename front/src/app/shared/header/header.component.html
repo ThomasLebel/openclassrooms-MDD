@@ -1,0 +1,52 @@
+<div class="main-container">
+  <app-side-nav
+    (toggleDrawer)="toggleDrawer()"
+    [isDrawerOpen]="isDrawerOpen"
+    (disconnect)="logout()"
+    [actualPage]="actualPage"
+  ></app-side-nav>
+  <div class="sub-container">
+    <img
+      [routerLink]=""
+      class="mdd-logo"
+      src="/assets/logo_p6.png"
+      alt="mdd logo"
+      routerLink=""
+    />
+
+    <div *ngIf="!isOnMobile" class="connected-btns">
+      <nav class="btns-container">
+        <span class="disconect" (click)="logout()">Se déconnecter</span>
+        <span
+          class="menu-btn"
+          routerLink=""
+          [ngClass]="{ blue: actualPage === 'articles' }"
+          >Articles</span
+        >
+        <span
+          class="menu-btn"
+          routerLink="/themes"
+          [ngClass]="{ blue: actualPage === 'themes' }"
+          >Thèmes</span
+        >
+        <img
+          class="user-icon"
+          src="/assets/user.png"
+          alt="user icon"
+          routerLink=""
+        />
+      </nav>
+    </div>
+
+    <div *ngIf="isOnMobile">
+      <div class="menu-icon-container">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="menu icon"
+          fontIcon="menu"
+          (click)="toggleDrawer()"
+        ></mat-icon>
+      </div>
+    </div>
+  </div>
+</div>
