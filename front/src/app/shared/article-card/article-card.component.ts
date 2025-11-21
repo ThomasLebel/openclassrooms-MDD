@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Article } from 'src/app/models/Article';
 
 @Component({
   selector: 'app-article-card',
   templateUrl: './article-card.component.html',
-  styleUrls: ['./article-card.component.scss']
+  styleUrls: ['./article-card.component.scss'],
 })
 export class ArticleCardComponent implements OnInit {
+  @Input() article!: Article;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

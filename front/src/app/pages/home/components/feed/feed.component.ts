@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { articleMock } from '../../mocks/articleMock';
 
 @Component({
   selector: 'app-feed',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class FeedComponent implements OnInit {
   sortByLatest: boolean = true;
   constructor() {}
-
+  article = articleMock;
   ngOnInit(): void {}
 
   onSortChange() {

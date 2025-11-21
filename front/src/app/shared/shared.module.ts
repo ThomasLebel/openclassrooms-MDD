@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -26,6 +26,7 @@ import { ThemeCardComponent } from './theme-card/theme-card.component';
     AppRoutingModule,
     RouterLink,
     MatButtonModule,
+    DatePipe,
   ],
   exports: [
     HeaderComponent,

@@ -8,20 +8,16 @@
     fontIcon="west"
   ></mat-icon>
   <div class="sub-container">
-    <h2>Titre de l'article</h2>
+    <h2>{{ article.title }}</h2>
     <div class="article-infos">
-      <span class="article-info">01 Janvier 2024</span>
-      <span class="article-info">Par Auteur</span>
-      <span class="article-info">Thème</span>
+      <span class="article-info">{{
+        article.createdAt | date : "d MMMM y 'à' HH:mm"
+      }}</span>
+      <span class="article-info">{{ article.author }}</span>
+      <span class="article-info">{{ article.theme.name }}</span>
     </div>
     <p class="content">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
-      nesciunt fugit similique deserunt doloribus, a voluptate quaerat eligendi
-      repellat quis esse corporis natus recusandae unde beatae et vitae, iusto
-      obcaecati! Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe,
-      labore ducimus. Maxime, soluta ipsa vitae blanditiis dolore at quos libero
-      alias aliquam cupiditate, ut eos, obcaecati accusantium excepturi iusto.
-      Modi?
+      {{ article.content }}
     </p>
     <mat-divider></mat-divider>
 
