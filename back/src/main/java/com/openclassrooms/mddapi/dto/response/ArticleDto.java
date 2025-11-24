@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,6 +24,8 @@ public class ArticleDto {
     private String authorUsername;
 
     private String themeTitle;
+
+    private List<CommentDto> comments;
 
     private LocalDateTime createdAt;
 

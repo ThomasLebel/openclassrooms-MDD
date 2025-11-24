@@ -3,10 +3,8 @@ package com.openclassrooms.mddapi.services;
 import com.openclassrooms.mddapi.dto.request.LoginRequest;
 import com.openclassrooms.mddapi.dto.request.RegisterRequest;
 import com.openclassrooms.mddapi.dto.response.LoginResponse;
-import com.openclassrooms.mddapi.dto.response.UserInfosResponse;
 import com.openclassrooms.mddapi.models.User;
 import com.openclassrooms.mddapi.repository.UserRepository;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -58,14 +56,5 @@ public class AuthService {
         String token = jwtService.generateToken(loginRequest.getLogin());
         return new LoginResponse(token);
 
-    }
-
-    public UserInfosResponse getMe(Authentication authentication) throws Exception {
-        String email = authentication.getName();
-        Optional<User> user = userRepository.findByEmail(email);
-        if(user.isEmpty()){
-            throw new Exception("User not found");
-        }
-        return new UserInfosResponse(user.get());
     }
 }

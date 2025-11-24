@@ -10,10 +10,10 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class CommentCreateRequest {
 
-    @NotNull
-    private Long articleId;
+    @NotNull(message = "Article ID is required")
+    private Integer articleId;
 
-    @NotBlank
+    @NotBlank(message = "Content is required")
     private String content;
 
 }

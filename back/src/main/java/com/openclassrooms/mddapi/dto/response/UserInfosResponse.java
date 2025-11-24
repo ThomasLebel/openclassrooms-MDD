@@ -15,6 +15,8 @@ public class UserInfosResponse {
 
     private String email;
 
+    private String token;
+
     public UserInfosResponse(User user) {
         this.username = user.getUsername();
         this.email = user.getEmail();

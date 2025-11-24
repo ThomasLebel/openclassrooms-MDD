@@ -5,7 +5,6 @@ import com.openclassrooms.mddapi.dto.request.RegisterRequest;
 import com.openclassrooms.mddapi.dto.response.ErrorResponse;
 import com.openclassrooms.mddapi.dto.response.LoginResponse;
 import com.openclassrooms.mddapi.services.AuthService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -18,8 +17,11 @@ import javax.validation.Valid;
 @RequestMapping(path = "api/auth")
 public class AuthController {
 
-    @Autowired
-    private AuthService authService;
+    private final AuthService authService;
+
+    public AuthController(AuthService authService) {
+        this.authService = authService;
+    }
 
     @PostMapping(path = "/register")
     public ResponseEntity<?> register(@RequestBody @Valid RegisterRequest registerRequest, BindingResult bindingResult) {
