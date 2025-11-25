@@ -47,6 +47,7 @@
       </div>
     </form>
 
+    <span *ngIf="errorMessage" class="login-error">{{ errorMessage }}</span>
     <button mat-raised-button color="primary" (click)="onSubmitForm()">
       Se connecter
     </button>

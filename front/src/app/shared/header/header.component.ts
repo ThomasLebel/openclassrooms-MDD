@@ -1,6 +1,6 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/core/auth.service';
+import { SessionService } from 'src/app/core/services/session.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   isOnMobile: boolean = false;
   isDrawerOpen: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: SessionService, private router: Router) {}
 
   ngOnInit(): void {
     this.onResize();

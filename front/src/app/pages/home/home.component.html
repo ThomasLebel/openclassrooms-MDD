@@ -1,4 +1,4 @@
-<app-feed *ngIf="isUserLoggedIn$ | async; else authPage"></app-feed>
+<app-feed *ngIf="isAuthentificated$ | async; else authPage"></app-feed>
 
 <ng-template #authPage>
   <app-auth-page></app-auth-page>
