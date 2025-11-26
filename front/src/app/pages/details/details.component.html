@@ -13,8 +13,8 @@
       <span class="article-info">{{
         article.createdAt | date : "d MMMM y 'à' HH:mm"
       }}</span>
-      <span class="article-info">{{ article.author }}</span>
-      <span class="article-info">{{ article.theme.name }}</span>
+      <span class="article-info">{{ article.authorUsername }}</span>
+      <span class="article-info">{{ article.themeTitle }}</span>
     </div>
     <p class="content">
       {{ article.content }}

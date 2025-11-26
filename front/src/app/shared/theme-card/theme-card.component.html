@@ -1,11 +1,26 @@
 <div class="card">
-  <h2 class="theme-title">Titre du thème</h2>
+  <h2 class="theme-title">{{ theme.title }}</h2>
   <p class="theme-summary">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, magni
-    consectetur fuga adipisci placeat illo autem ea necessitatibus optio, in
-    officiis similique vero. Natus aperiam deleniti itaque vitae et fugiat?
+    {{ theme.description }}
   </p>
   <div class="btn-container">
-    <button mat-raised-button color="primary">S'abonner</button>
+    <button
+      *ngIf="!theme.subscribed"
+      mat-raised-button
+      color="primary"
+      (click)="onSubscribeClick()"
+      [disabled]="isLoading"
+    >
+      S'abonner
+    </button>
+    <button
+      *ngIf="theme.subscribed"
+      mat-raised-button
+      class="btn-grey"
+      (click)="onUnsubscribeClick()"
+      [disabled]="isLoading"
+    >
+      Se désabonner
+    </button>
   </div>
 </div>

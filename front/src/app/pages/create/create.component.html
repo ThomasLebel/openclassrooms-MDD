@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="container" *ngIf="createForm">
+<div class="container" *ngIf="createForm && themes">
   <div class="sub-container">
     <div class="icon-container">
       <mat-icon
@@ -21,8 +21,8 @@
           [class.placeholder]="createForm.get('theme')?.value === ''"
         >
           <option value="">Sélectionner un thème</option>
-          <option *ngFor="let item of items" [value]="item.value">
-            {{ item.label }}
+          <option *ngFor="let theme of themes" [value]="theme.id">
+            {{ theme.title }}
           </option>
         </select>
         <span

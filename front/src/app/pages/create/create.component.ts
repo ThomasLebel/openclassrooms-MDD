@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Theme } from '../../models/Theme';
+import { ThemeService } from '../services/theme.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-create',
@@ -7,11 +10,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./create.component.scss'],
 })
 export class CreateComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private themeService: ThemeService,
+    private snackBar: MatSnackBar
+  ) {}
 
   createForm!: FormGroup;
+  themes!: Theme[];
+  items: string[] = [];
 
   ngOnInit(): void {
+    this.getThemeList();
     this.createForm = this.formBuilder.group({
       theme: ['', Validators.required],
       title: ['', [Validators.required, Validators.minLength(5)]],
@@ -19,9 +29,17 @@ export class CreateComponent implements OnInit {
     });
   }
 
-  items = [
-    { label: 'Option A', value: 'A' },
-    { label: 'Option B', value: 'B' },
-    { label: 'Option C', value: 'C' },
-  ];
+  private getThemeList() {
+    this.themeService.getAllThemes().subscribe({
+      next: (response) => {
+        this.themes = response;
+      },
+      error: (err) =>
+        this.snackBar.open(
+          'Une erreur est survenue lors de la récupération des thèmes',
+          'Fermer',
+          { duration: 3000 }
+        ),
+    });
+  }
 }

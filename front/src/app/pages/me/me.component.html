@@ -76,10 +76,10 @@
     <mat-divider></mat-divider>
     <h2>Abonnements</h2>
     <div class="articles-container">
-      <app-theme-card></app-theme-card>
-      <app-theme-card></app-theme-card>
-      <app-theme-card></app-theme-card>
-      <app-theme-card></app-theme-card>
+      <app-theme-card
+        *ngFor="let theme of subscribedThemes"
+        [theme]="theme"
+      ></app-theme-card>
     </div>
   </div>
 </div>

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import passwordValidator from 'src/utils/password-validator';
 import { AuthService } from '../../core/services/auth.service';
 import { SessionService } from '../../core/services/session.service';
-import RegisterRequest from '../../core/interfaces/registerRequest.interface';
+import RegisterRequest from '../../core/interfaces/requests/registerRequest.interface';
 import { Router } from '@angular/router';
 
 @Component({
