@@ -81,7 +81,7 @@ public class ThemeService {
             user.getSubscribedThemes().remove(theme);
             theme.getSubscribedUsers().remove(user);
             userRepository.save(user);
-            return new MessageResponse("Theme subscribed successfully");
+            return new MessageResponse("Theme unsubscribed successfully");
         } else {
             throw new RuntimeException("Theme not subscribed");
         }

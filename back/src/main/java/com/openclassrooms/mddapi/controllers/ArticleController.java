@@ -42,9 +42,9 @@ public class ArticleController {
     }
 
     @GetMapping(path = "")
-    public ResponseEntity<?> getAllArticles() {
+    public ResponseEntity<?> getAllSubscribedArticles(Authentication authentication) {
         try {
-            List<ArticleDto> articles = articleService.getAllArticles();
+            List<ArticleDto> articles = articleService.getAllSubscribedArticles(authentication);
             return ResponseEntity.ok(articles);
 
         } catch (RuntimeException e){

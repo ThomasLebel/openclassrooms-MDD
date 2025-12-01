@@ -21,6 +21,7 @@ public class Article {
 
     private String title;
 
+    @Column(columnDefinition = "TEXT")
     private String content;
 
     @ManyToOne(optional = false)

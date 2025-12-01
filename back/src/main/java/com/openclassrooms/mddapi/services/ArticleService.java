@@ -39,8 +39,10 @@ public class ArticleService {
         return new MessageResponse("Article created successfully");
     }
 
-    public List<ArticleDto> getAllArticles(){
-        List<Article> articles = articleRepository.findAll();
+    public List<ArticleDto> getAllSubscribedArticles(Authentication authentication){
+        String email = authentication.getName();
+        User user = userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("User not found"));
+        List<Article> articles = userRepository.findSubscribedArticles(user.getId());
         return articles.stream()
                 .map(ArticleDto::new)
                 .collect(Collectors.toList());
