@@ -5,6 +5,8 @@
     <div class="articles-container">
       <app-theme-card
         *ngFor="let theme of themes"
+        (unsubscribeClickEvent)="onUnsubscribeClick($event)"
+        (subscribeClickEvent)="onSubscribeClick($event)"
         [theme]="theme"
       ></app-theme-card>
     </div>

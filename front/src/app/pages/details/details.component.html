@@ -7,7 +7,7 @@
     aria-label="arrow back icon"
     fontIcon="west"
   ></mat-icon>
-  <div class="sub-container">
+  <div class="sub-container" *ngIf="article">
     <h2>{{ article.title }}</h2>
     <div class="article-infos">
       <span class="article-info">{{
@@ -24,19 +24,23 @@
     <span class="comments-title">Commentaires</span>
     <div class="bottom-container">
       <div class="comments-section">
-        <app-comment></app-comment>
+        <app-comment
+          *ngFor="let comment of article.comments"
+          [comment]="comment"
+        ></app-comment>
 
         <div class="comment-input-container">
           <textarea
+            [(ngModel)]="commentText"
             class="comment-input"
             placeholder="Écrivez ici votre commentaire"
           ></textarea>
           <mat-icon
             class="send-button"
             aria-hidden="false"
-            routerLink=""
             aria-label="arrow back icon"
             fontIcon="send"
+            (click)="onSubmitComment()"
           ></mat-icon>
         </div>
       </div>

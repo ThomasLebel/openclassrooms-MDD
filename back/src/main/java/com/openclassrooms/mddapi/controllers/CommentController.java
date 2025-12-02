@@ -1,6 +1,7 @@
 package com.openclassrooms.mddapi.controllers;
 
 import com.openclassrooms.mddapi.dto.request.CommentCreateRequest;
+import com.openclassrooms.mddapi.dto.response.CommentDto;
 import com.openclassrooms.mddapi.dto.response.ErrorResponse;
 import com.openclassrooms.mddapi.dto.response.MessageResponse;
 import com.openclassrooms.mddapi.services.CommentService;
@@ -32,8 +33,8 @@ public class CommentController {
         }
 
         try {
-            MessageResponse message = commentService.addComment(commentCreateRequest, authentication);
-            return ResponseEntity.ok(message);
+            CommentDto comment = commentService.addComment(commentCreateRequest, authentication);
+            return ResponseEntity.ok(comment);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse(e.getMessage(), HttpStatus.BAD_REQUEST.value()));
         }

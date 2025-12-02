@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import CommentCreateRequest from '../../core/interfaces/requests/commentCreateRequest.interface';
-import MessageResponse from '../../core/interfaces/responses/messageResponse.interface';
 import { Observable } from 'rxjs';
+import CommentResponse from '../../core/interfaces/responses/commentResponse.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -15,8 +15,8 @@ export class CommentService {
 
   public create(
     commentCreateRequest: CommentCreateRequest
-  ): Observable<MessageResponse> {
-    return this.httpClient.post<MessageResponse>(
+  ): Observable<CommentResponse> {
+    return this.httpClient.post<CommentResponse>(
       `${this.url}${this.pathService}/create`,
       commentCreateRequest
     );

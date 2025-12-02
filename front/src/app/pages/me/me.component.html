@@ -1,7 +1,7 @@
 <app-header actualPage="me"></app-header>
 <div class="container">
   <div class="sub-container">
-    <form [formGroup]="meForm">
+    <form [formGroup]="meForm" (ngSubmit)="onSubmitForm()">
       <h2>Profil utilisateur</h2>
       <div class="form-field">
         <input
@@ -46,18 +46,12 @@
 
       <div class="form-field">
         <input
+          autocomplete="new-password"
           type="password"
           id="password"
           formControlName="password"
           placeholder="Nouveau mot de passe"
         />
-
-        <span
-          class="error"
-          *ngIf="meForm.get('password')?.touched 
-        && meForm.get('password')?.errors?.['required']"
-          >Veuillez saisir un mot de passe</span
-        >
 
         <span
           class="error"
@@ -79,6 +73,7 @@
       <app-theme-card
         *ngFor="let theme of subscribedThemes"
         [theme]="theme"
+        (unsubscribeClickEvent)="onUnsubscribeClick($event)"
       ></app-theme-card>
     </div>
   </div>

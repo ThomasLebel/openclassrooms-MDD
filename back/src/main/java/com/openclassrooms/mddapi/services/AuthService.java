@@ -53,7 +53,7 @@ public class AuthService {
             throw new Exception("Wrong password");
         }
 
-        String token = jwtService.generateToken(loginRequest.getLogin());
+        String token = jwtService.generateToken(existingUser.get().getEmail());
         return new LoginResponse(token);
 
     }

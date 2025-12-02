@@ -9,7 +9,7 @@
         fontIcon="west"
       ></mat-icon>
     </div>
-    <form [formGroup]="createForm">
+    <form [formGroup]="createForm" (ngSubmit)="createArticle()">
       <!--Titre-->
       <h2>Créer un nouvel article</h2>
 

@@ -1,6 +1,7 @@
 package com.openclassrooms.mddapi.services;
 
 import com.openclassrooms.mddapi.dto.request.CommentCreateRequest;
+import com.openclassrooms.mddapi.dto.response.CommentDto;
 import com.openclassrooms.mddapi.dto.response.MessageResponse;
 import com.openclassrooms.mddapi.models.Article;
 import com.openclassrooms.mddapi.models.Comment;
@@ -24,12 +25,12 @@ public class CommentService {
         this.articleRepository = articleRepository;
     }
 
-    public MessageResponse addComment(CommentCreateRequest commentCreateRequest, Authentication authentication) {
+    public CommentDto addComment(CommentCreateRequest commentCreateRequest, Authentication authentication) {
         String email =  authentication.getName();
         User user = userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("User not found"));
         Article article = articleRepository.findById(commentCreateRequest.getArticleId()).orElseThrow(() -> new RuntimeException("Article not found"));
         Comment comment = new Comment(commentCreateRequest.getContent(), user, article);
         commentRepository.save(comment);
-        return new MessageResponse("Comment added successfully");
+        return new CommentDto(comment.getAuthor().getUsername(), comment.getContent(), comment.getCreatedAt());
     }
 }

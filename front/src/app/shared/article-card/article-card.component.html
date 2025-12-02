@@ -1,4 +1,4 @@
-<div class="card" routerLink="/details">
+<div class="card" [routerLink]="['/details/', article.id]">
   <h2 class="article-title">{{ article.title }}</h2>
   <div class="article-header">
     <span class="article-date">{{
