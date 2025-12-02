@@ -22,7 +22,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: 'create', component: CreateComponent, canActivate: [AuthGuard] },
-  { path: 'me', component: MeComponent },
+  { path: 'me', component: MeComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

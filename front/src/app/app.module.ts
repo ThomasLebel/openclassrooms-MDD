@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { UnauthorizedInterceptor } from './core/interceptors/unauthorized.interceptor';
 
 registerLocaleData(localeFr);
 
@@ -29,6 +30,11 @@ registerLocaleData(localeFr);
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UnauthorizedInterceptor,
       multi: true,
     },
     { provide: LOCALE_ID, useValue: 'fr-FR' },

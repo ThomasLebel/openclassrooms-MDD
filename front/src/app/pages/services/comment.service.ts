@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 import CommentCreateRequest from '../../core/interfaces/requests/commentCreateRequest.interface';
 import { Observable } from 'rxjs';
 import CommentResponse from '../../core/interfaces/responses/commentResponse.interface';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommentService {
-  private url = 'http://localhost:8080/';
-  private pathService = 'api/comments';
+  private pathService = 'comments';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -17,7 +17,7 @@ export class CommentService {
     commentCreateRequest: CommentCreateRequest
   ): Observable<CommentResponse> {
     return this.httpClient.post<CommentResponse>(
-      `${this.url}${this.pathService}/create`,
+      `${environment.apiUrl}${this.pathService}/create`,
       commentCreateRequest
     );
   }

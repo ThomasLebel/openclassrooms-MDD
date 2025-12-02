@@ -125,7 +125,9 @@ export class MeComponent implements OnInit {
   public onUnsubscribeClick(themeId: number) {
     this.themeService.unsubscribe(themeId).subscribe({
       next: (response) => {
-        this.getThemesSubscribed();
+        this.subscribedThemes = this.subscribedThemes.filter(
+          (t) => t.id != themeId
+        );
       },
       error: (err) => {
         this.snackBar.open(

@@ -4,13 +4,13 @@ import { Observable } from 'rxjs';
 import MessageResponse from '../../core/interfaces/responses/messageResponse.interface';
 import { Article } from '../../models/Article';
 import ArticleCreateRequest from '../../core/interfaces/requests/articleCreateRequest.interface';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ArticleService {
-  private url = 'http://localhost:8080/';
-  private pathService = 'api/articles';
+  private pathService = 'articles';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -18,16 +18,20 @@ export class ArticleService {
     articleCreateRequest: ArticleCreateRequest
   ): Observable<MessageResponse> {
     return this.httpClient.post<MessageResponse>(
-      `${this.url}${this.pathService}/create`,
+      `${environment.apiUrl}${this.pathService}/create`,
       articleCreateRequest
     );
   }
 
   public getSubscribedArticles(): Observable<Article[]> {
-    return this.httpClient.get<Article[]>(`${this.url}${this.pathService}`);
+    return this.httpClient.get<Article[]>(
+      `${environment.apiUrl}${this.pathService}`
+    );
   }
 
   public getArticleById(id: string): Observable<Article> {
-    return this.httpClient.get<Article>(`${this.url}${this.pathService}/${id}`);
+    return this.httpClient.get<Article>(
+      `${environment.apiUrl}${this.pathService}/${id}`
+    );
   }
 }
