@@ -1,25 +1,45 @@
-# P6-Full-Stack-reseau-dev
 
-## Front
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
+# 💬 Mdd
 
-Don't forget to install your node_modules before starting (`npm install`).
+Projet Fullstack d'une application de blog réalisée dans le cadre de la formation OpenClassrooms
 
-### Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🛠️ Fonctionnalités
 
-### Build
+- Authentification sécurisée avec JWT
+- Publication d'articles
+- Publication de commentaires
+- Modification de profil
+- Système d'abonnement à des thèmes
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 📦 Installation
 
-### Where to start
+1. Cloner le projet
+```bash 
+git clone https://github.com/ThomasLebel/openclassrooms-MDD.git
+cd openclassrooms-MDD
+```
+2. Créer la base de données MySQL
 
-As you may have seen if you already started the app, a simple home page containing a logo, a title and a button is available. If you take a look at its code (in the `home.component.html`) you will see that an external UI library is already configured in the project.
+```bash 
+CREATE DATABASE mdd;
+```
+3. Configurer les variables d’environnement backend
+- Remplissez le fichier application propoerties avec l'url de la BDD, le login, le password et une clé générée aléatoirement pour les JWT
 
-This library is `@angular/material`, it's one of the most famous in the angular ecosystem. As you can see on their docs (https://material.angular.io/), it contains a lot of highly customizable components that will help you design your interfaces quickly.
+4. Installer les dépendances et démarrer le backend
+```bash
+cd back
+mvn clean install
+mvn spring-boot:run
+```
 
-Note: I recommend to use material however it's not mandatory, if you prefer you can get rid of it.
+4. Installer les dépendances et démarrer le frontend
+```bash
+cd front
+npm i
+npm start
+```
 
-Good luck!
+L’application devrait être accessible sur http://localhost:3001 par défaut
