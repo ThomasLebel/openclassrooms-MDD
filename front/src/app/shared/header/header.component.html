@@ -1,5 +1,6 @@
 <div class="main-container">
   <app-side-nav
+    *ngIf="isAuthenticated"
     (toggleDrawer)="toggleDrawer()"
     [isDrawerOpen]="isDrawerOpen"
     (disconnect)="logout()"
@@ -14,7 +15,7 @@
       routerLink=""
     />
 
-    <div *ngIf="!isOnMobile" class="connected-btns">
+    <div *ngIf="!isOnMobile && isAuthenticated" class="connected-btns">
       <nav class="btns-container">
         <span class="disconect" (click)="logout()">Se déconnecter</span>
         <span
@@ -42,7 +43,7 @@
       </nav>
     </div>
 
-    <div *ngIf="isOnMobile">
+    <div *ngIf="isOnMobile && isAuthenticated">
       <div class="menu-icon-container">
         <mat-icon
           aria-hidden="false"

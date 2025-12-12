@@ -11,11 +11,13 @@ export class HeaderComponent implements OnInit {
   @Input() actualPage: string = '';
   isOnMobile: boolean = false;
   isDrawerOpen: boolean = false;
+  isAuthenticated: boolean = this.authService.isAuthenticated();
 
   constructor(private authService: SessionService, private router: Router) {}
 
   ngOnInit(): void {
     this.onResize();
+    console.log(this.isAuthenticated);
   }
 
   @HostListener('window:resize')
